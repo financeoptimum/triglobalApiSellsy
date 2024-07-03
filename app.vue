@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <h1>Compteur de Leads Triglobal</h1>
-    <p>Nombre de Leads Recus : {{ postCount }}</p>
-    <p>Heure actuelle : {{ currentTime }}</p>
+    <h1>Application de creation Automatique des Opportunités dans Sellsy A Partir des Leads Triglobal</h1>
+    <!-- <p>Nombre de Leads Recus : {{ postCount }}</p>
+    <p>Heure actuelle : {{ currentTime }}</p> -->
   </div>
 </template>
 
@@ -10,6 +10,25 @@
 import { ref, onMounted } from 'vue';
 import { usePostCounterStore } from './server/stores/postCounter';
 
+const leadData = ref('');
+
+const sendLead = async () => {
+  try {
+    const response = await fetch('/leads', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ lead: leadData.value })
+    });
+    const result = await response.json();
+    console.log(result.message);
+  } catch (error) {
+    console.error('Erreur lors de l\'envoi du lead:', error);
+  }
+
+}
+  
 const postCount = ref(0);
 const currentTime = ref('');
 const postCounterStore = usePostCounterStore();
