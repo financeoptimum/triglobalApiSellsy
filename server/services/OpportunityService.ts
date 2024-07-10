@@ -112,9 +112,9 @@ export default class OpportunityService {
         });
 
 
-        // if (!response.ok) {
-        //     throw new Error(`Error: ${response.statusText}`);
-        // }
+        if (!response.ok) {
+            throw new Error(`Error: ${response.statusText}`);
+        }
         const opportunityCreated = await response.json(); 
         console.log("L'opportunité créé :", opportunityCreated )
         return opportunityCreated;

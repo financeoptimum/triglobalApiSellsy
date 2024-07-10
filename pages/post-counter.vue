@@ -1,15 +1,15 @@
 <template>
     <div class="container">
-      <h1 class="title">Décompte des Requêtes POST</h1>
-      <p class="counter">Nombre de requêtes POST reçues : </p>
+      <p class = "title">Leads reçus : {{ postCounterStore.postCount }}</p>
+      <p class = "title">Opportunités créées : {{ postCounterStore.opportunityCount }}</p>
+      <p class = "counter">Pourcentage de leads traités : {{ postCounterStore.treatedPercentage.toFixed(2) }}%</p>
     </div>
-  </template>
-  
-  <script setup lang="ts">
-//   import { usePostCounterStore } from '~/stores/postCounter';
-//   const postCounterStore = usePostCounterStore();
-//   const { postCount } = storeToRefs(postCounterStore);
-  </script>
+</template>
+
+<script setup lang="ts">
+  import { usePostCounterStore } from '../server/stores/postCounter';
+  const postCounterStore = usePostCounterStore();
+</script>
   
   <style scoped>
   .container {

@@ -2,8 +2,13 @@ import IndividualService from '../services/IndividualService';
 import LeadTriglobalService from '../services/LeadTriglobalService';
 import OpportunityService from '../services/OpportunityService';
 import CustomFieldsOpportunityService from '../services/CustomFieldsOpportunityService';
+import { usePostCounterStore } from '../stores/postCounter';
+import { createPinia, setActivePinia } from 'pinia';
+
 
 export default defineEventHandler(async (event) => {
+
+  // const postCounterStore = usePostCounterStore();
 
   const leadTriglobalService = new LeadTriglobalService(); 
   const individualService = new IndividualService();
@@ -12,6 +17,10 @@ export default defineEventHandler(async (event) => {
 
 
   const body = await readBody(event)
+  // if(body) {
+  //   // Incrémenter le compteur de leads reçus
+  //   postCounterStore.incrementPostCount();
+  // }
   // const data = await response.json();
 
   // reception des leads entrants 
@@ -29,6 +38,7 @@ export default defineEventHandler(async (event) => {
   opportunity.contact_ids.push(createdIndividual.main_contact_id); 
   opportunity.related.push({ id: createdIndividual.id , type: 'individual' });
   const createdOpportunity = await opportunityService.createOpportunity(opportunity) as { id: number };
+  // if(createdOpportunity) postCounterStore.incrementOpportunityCount();
   // const pipelineSteps = await opportunityService.getSellsyPipelineStep(31762)
 
 
@@ -36,6 +46,7 @@ export default defineEventHandler(async (event) => {
   const customFieldsOpportunity = await customFieldsOpportunityService.extractCustomFieldsData(body)
   const customFieldsOpportunityUpdated = await customFieldsOpportunityService.updateCustomFieldsData(customFieldsOpportunity, createdOpportunity.id);
   console.log("Les champs personnalisés ont bien ete mis à jour : ", customFieldsOpportunityUpdated)
+
 
   return {
     // LeadTriglobal : leadData,
