@@ -14,7 +14,7 @@ export default defineEventHandler (async (event) => {
 
     
     // Test 1 - Recuperer la liste des champs personnalisés 
-        const customFieldOpportunity = await customFieldsOpportunityService.getSellsyCustomFields(1501050); // prenons l'opportunite de nom : 1539 TEST API 9 RECUPERATION ID LEAD SOURCE  75001 Paris New York et dont id = 10687351 pour des questions de test
+        const customFieldOpportunity = await customFieldsOpportunityService.getSellsyCustomFields(10852545); // prenons l'opportunite de nom : 1539 TEST API OPPORTUNITE PERCENT 14 75001 Paris New York et dont id = 10852545 pour des questions de test
         setResponseStatus(event, 200);  
         return customFieldOpportunity
         try {

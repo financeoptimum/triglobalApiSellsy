@@ -120,6 +120,38 @@ export default class CustomFieldsService {
                 code: "destinationregionetat",
                 value: lead.delivery_region // Nouvelle valeur pour ce champ
             },
+            {
+                id: 45528, // ID du champ personnalisé "Transport Type"
+                code: "typetransport",
+                value: 3254262 // 3254262 correspond à l'id du choix "Container Groupage"
+            },
+            {
+                id: 45525, // ID du champ personnalisé "Transport Mode"
+                code: "transportmode",
+                value: 3215384 // 3215384 correspond à l'id du choix "Mer"
+            },
+            {
+                id: 45526, // ID du champ personnalisé "Transport Expedition"
+                code: "transportexpedition",
+                value: 3215388 // 3215388 correspond à l'id du choix "Groupage"
+            },
+            {
+                id: 45524, // ID du champ personnalisé "Assurance Garantie"
+                code: "assurancegarantie",
+                value: 3215380 // 3215380 correspond à l'id du choix "Gold"
+            },
+            {
+                id: 50904, // ID du champ personnalisé "Assurance Taux de Prime"
+                code: "assurancetauxprime",
+                value: 3232726 // 3232726 correspond à l'id du choix "3%"
+            },
+            {
+                id: 94835, // ID du champ personnalisé "Type Dossier"
+                code: "type-dossier",
+                value: 3391370 // 3391370 correspond à l'id du choix "DEM EXPORT"
+            },
+
+
         ];
         
         return customFieldsData;
