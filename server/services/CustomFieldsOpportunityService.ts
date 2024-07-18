@@ -103,7 +103,7 @@ export default class CustomFieldsService {
             {
                 id: 42268, // ID du champ personnalisé "Destination CP"
                 code: "livraisoncp",
-                value: parseInt(lead.delivery_zipcode) // Nouvelle valeur pour ce champ
+                value: lead.delivery_zipcode // Nouvelle valeur pour ce champ
             },
             {
                 id: 31718, // ID du champ personnalisé "Destination Ville"
