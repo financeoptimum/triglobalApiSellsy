@@ -45,9 +45,9 @@ export default class CustomFieldsService {
             //     "value": lead.moving_size // Nouvelle valeur pour ce champ
             // },
             {
-                "id": 31731, // ID du champ personnalisé "Volume prévu (m3)" // A valider par M. JPBIARD
-                "code": "m3annonce",
-                "value": lead.volume_m3 // Nouvelle valeur pour ce champ
+                id: 31731, // ID du champ personnalisé "Volume prévu (m3)" // A valider par M. JPBIARD
+                code: "m3annonce",
+                value : lead.volume_m3 // Nouvelle valeur pour ce champ
             },
             // {
             //     "id": 281968,
@@ -103,7 +103,7 @@ export default class CustomFieldsService {
             {
                 id: 42268, // ID du champ personnalisé "Destination CP"
                 code: "livraisoncp",
-                value: lead.delivery_zipcode // Nouvelle valeur pour ce champ
+                value: parseInt(lead.delivery_zipcode) // Nouvelle valeur pour ce champ
             },
             {
                 id: 31718, // ID du champ personnalisé "Destination Ville"

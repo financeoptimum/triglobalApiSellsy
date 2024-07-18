@@ -43,7 +43,7 @@ export default defineEventHandler(async (event) => {
 
 
   // création champs personnalisé
-  const customFieldsOpportunity = await customFieldsOpportunityService.extractCustomFieldsData(body)
+  const customFieldsOpportunity = await customFieldsOpportunityService.extractCustomFieldsData(leadData)
   const customFieldsOpportunityUpdated = await customFieldsOpportunityService.updateCustomFieldsData(customFieldsOpportunity, createdOpportunity.id);
   console.log("Les champs personnalisés ont bien ete mis à jour : ", customFieldsOpportunityUpdated)
 
